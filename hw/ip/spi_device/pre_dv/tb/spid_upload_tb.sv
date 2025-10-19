@@ -183,7 +183,7 @@ module spid_upload_tb;
     $finish();
   end
 
-  static task host();
+  task automatic host();
     //  Prep data
     automatic logic [7:0] payload [$];
     automatic int unsigned payload_bytes;
@@ -290,7 +290,7 @@ module spid_upload_tb;
     @(sck_clk.cbn);
   endtask : host
 
-  static task sw();
+  task automatic sw();
     automatic logic [ 7:0] cmd;
     automatic logic [31:0] addr;
     automatic logic [ 7:0] payload [$];
@@ -621,7 +621,7 @@ module spid_upload_tb;
     .sram_rerror_i (bus_mem_rerror)
   );
 
-  static task read_sram(
+  task automatic read_sram(
     ref       sram_l2m_t l2m,
     const ref sram_m2l_t m2l,
     input logic [SramAw-1:0] addr,
@@ -660,7 +660,7 @@ module spid_upload_tb;
     data = result;
   endtask : read_sram
 
-  static task read_sram_wrap(
+  task automatic read_sram_wrap(
     ref       sram_l2m_t      l2m,
     const ref sram_m2l_t      m2l,
     input logic [SramAw-1:0]  BaseAddr, // Buffer Base Address

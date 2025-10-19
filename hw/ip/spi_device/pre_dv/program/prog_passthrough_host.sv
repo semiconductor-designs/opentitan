@@ -114,7 +114,7 @@ program prog_passthrough_host
 
   end
 
-  static task automatic wait_trans();
+  task automatic wait_trans();
     repeat(10) @(negedge clk);
   endtask : wait_trans
 
@@ -134,7 +134,7 @@ program prog_passthrough_host
 
   endtask : read_status
 
-  static task test_readbasic(output bit pass);
+  task test_readbasic(output bit pass);
     automatic logic [23:0] temp_jedec_id;
     automatic int unsigned num_cc;
     automatic spi_queue_t  rdata = {};
@@ -216,7 +216,7 @@ program prog_passthrough_host
 
   endtask : test_readbasic
 
-  static task test_addr_4b(output bit pass);
+  task test_addr_4b(output bit pass);
     automatic spi_queue_t rdata;
     automatic logic [31:0] address;
     automatic int unsigned size;
@@ -296,7 +296,7 @@ program prog_passthrough_host
 
   endtask : test_addr_4b
 
-  static task test_wel(output bit pass);
+  task test_wel(output bit pass);
     automatic bit status_wel;
     automatic bit exp_wel = 1'b 0;
     // This test issues WREN/ WRDI to SPIFlash and check if the SPI_DEVICE IP
@@ -343,7 +343,7 @@ program prog_passthrough_host
 
   endtask : test_wel
 
-  static task test_program(output bit pass);
+  task test_program(output bit pass);
 
     // Test sequence:
     // Issue commands w/ random WEL
@@ -462,7 +462,7 @@ program prog_passthrough_host
 
   endtask : test_program
 
-  static task test_upload(output bit pass);
+  task test_upload(output bit pass);
     SpiTransProgram trans;
     // Sequence
 

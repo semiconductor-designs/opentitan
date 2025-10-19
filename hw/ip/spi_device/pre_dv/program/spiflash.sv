@@ -189,7 +189,7 @@ program spiflash #(
     return str;
   endfunction : print_capacity
 
-  static task main();
+  task automatic main();
     // Main function
     forever begin
       automatic spiflash_byte_t opcode;
@@ -247,7 +247,7 @@ program spiflash #(
     end
   endtask : main
 
-  static task backend();
+  task automatic backend();
     forever begin
       automatic spiflash_byte_t opcode;
       backend_process.get(opcode);

@@ -94,7 +94,7 @@ module spid_jedec_tb;
     $finish();
   end
 
-  static task host();
+  task automatic host();
     automatic int unsigned num_cc;
     logic [23:0] jedec_id;
 
@@ -111,7 +111,7 @@ module spid_jedec_tb;
     $display("SPI Flash Read JEDEC ID Tested!!:");
   endtask : host
 
-  static task sw();
+  task automatic sw();
     // Initial config
     jedec_id = '{
       num_cc:     8'h 5        ,

@@ -226,7 +226,7 @@ program prog_passthrough_sw
     );
   endtask : init_interrupts
 
-  static task test_program();
+  task automatic test_program();
     // Turning off INTERCEPT
     tlul_write(
       clk, h2d, d2h,
@@ -246,7 +246,7 @@ program prog_passthrough_sw
 
   endtask : test_program
 
-  static task test_upload();
+  task automatic test_upload();
     automatic logic [31:0] tl_rdata;
     automatic logic [ 7:0] opcode; // cmd opcode
     automatic logic [31:0] address;

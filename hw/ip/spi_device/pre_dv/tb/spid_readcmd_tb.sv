@@ -177,7 +177,7 @@ module tb;
     $finish();
   end
 
-  static task host();
+  task automatic host();
     spi_queue_t sfdp_data;
     spi_queue_t read_data; // read_cmd data
     spi_queue_t expected_data;
@@ -665,7 +665,7 @@ module tb;
     return match;
   endfunction : check_data
 
-  static task sw();
+  task automatic sw();
     automatic logic sw_gnt; // sram grant signal. always 1 in this test
     // Driving default
 
